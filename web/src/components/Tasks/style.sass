@@ -1,0 +1,84 @@
+.tasks
+
+  &__add
+
+    &__skills
+      list-style: none
+      padding: 0
+      margin: 5px 0
+      text-transform: uppercase
+      color: #000
+
+      &__skill
+        font-size: 12px
+        text-transform: uppercase
+        background-color: lightblue
+        border-radius: 10px
+        padding: 2px
+        width: 100px
+        margin: 5px auto
+        cursor: pointer
+
+      .checked
+        background-color: lightgreen
+
+    &__button
+      border-radius: 5px
+      border: none
+      padding: 5px
+      color: #fff
+      height: 25px
+      cursor: pointer
+      background-color: #4f7adb
+      margin-top: 5px
+
+    .--cancel
+      margin-left: 5px
+      background-color: red
+
+.list
+  list-style: none
+  padding: 0
+
+  .--completed
+      background-color: #d0edd0
+
+  &__task
+    margin: 15px auto
+    background-color: #f1f1f1
+    padding: 10px
+    border-radius: 10px
+    display: flex
+    justify-content: space-between
+
+    &__name--dark
+      color: #000
+
+    &__skills
+      font-size: 12px
+      text-transform: uppercase
+      background-color: lightblue
+      border-radius: 10px
+      margin-top: 5px
+      padding: 2px
+      width: 70px
+      color: #000
+
+    &__actions
+      display: flex
+      justify-content: space-between
+      gap: 10px
+
+    &__button
+      border-radius: 5px
+      border: none
+      padding: 5px
+      color: #fff
+      height: 25px
+      cursor: pointer
+
+    .--delete
+      background-color: red
+
+    .--complete
+      background-color: green

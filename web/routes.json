@@ -1,0 +1,11 @@
+{
+    "/users*": "/600/users$1",
+    "/users/*": "/600/users/$1",
+    "/messages*": "/640/messages$1",
+    "/profile*": "/600/profile$1",
+    "/tasks": "/600/tasks",
+    "/tasks/*": "/600/tasks/$1",
+    "/skills*": "/600/skills$1",
+    "/addresses*": "/600/addresses$1",
+    "/userData/*/addresses/": "/600/userData/$1/addresses"
+}

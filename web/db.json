@@ -1,0 +1,215 @@
+{
+  "users": [
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$bEP8FBpAVrEMOeqfg/lmMOXMshhd/xdq67PBHCgTK39oqpPlgH4Yq",
+      "id": 1,
+      "userId": 1,
+      "name": "Adam",
+      "level": 5,
+      "exp": 4200,
+      "maxExp": 5000
+    },
+    {
+      "email": "test1@test.com",
+      "password": "$2a$10$cX2oatUtxIstYgK3qsQK9OQ2uJXg/0mJPbFrgTwoHPXKpf8g.3.wq",
+      "id": 2,
+      "userId": 2
+    }
+  ],
+  "userData": [
+    {
+      "id": 1,
+      "userId": 1,
+      "addresses": [
+        {
+          "id": 1,
+          "name": "home",
+          "street": "Jakuba Jasińskiego 22",
+          "zipcode": "43-344",
+          "city": "Bielsko-Biała"
+        },
+        {
+          "id": 2,
+          "name": "work",
+          "street": "Katowicka 26",
+          "zipcode": "42-300",
+          "city": "Katowice"
+        }
+      ]
+    }
+  ],
+  "profile": [
+    {
+      "name": "Adam",
+      "points": 0,
+      "userId": 1,
+      "addresses": [
+        {
+          "id": 1,
+          "userId": 1,
+          "name": "home",
+          "street": "Jakuba Jasińskiego 21",
+          "zipcode": "43-344",
+          "city": "Bielsko-Biała"
+        },
+        {
+          "id": 2,
+          "userId": 1,
+          "name": "work",
+          "street": "Katowicka 26",
+          "zipcode": "42-300",
+          "city": "Katowice"
+        }
+      ]
+    },
+    {
+      "name": "Kamil",
+      "points": 2,
+      "userId": 2
+    }
+  ],
+  "tasks": [
+    {
+      "id": 2,
+      "userId": 1,
+      "name": "Play Rocksmith",
+      "completed": false,
+      "skills": [
+        {
+          "id": "1"
+        }
+      ]
+    },
+    {
+      "userId": 1,
+      "name": "asdasd",
+      "completed": "true",
+      "skills": [
+        {
+          "id": 1
+        }
+      ],
+      "id": 15
+    },
+    {
+      "userId": 1,
+      "name": "adasd",
+      "completed": false,
+      "skills": [
+        {
+          "id": 3
+        }
+      ],
+      "id": 18
+    },
+    {
+      "userId": 1,
+      "name": "dsfdsf",
+      "completed": "true",
+      "skills": [
+        {
+          "id": 1
+        }
+      ],
+      "id": 19
+    },
+    {
+      "userId": 1,
+      "name": "dfasdasd",
+      "completed": "true",
+      "skills": [
+        {
+          "id": 1
+        }
+      ],
+      "id": 20
+    },
+    {
+      "userId": 1,
+      "name": "asdad",
+      "completed": "true",
+      "skills": [
+        {
+          "id": 2
+        }
+      ],
+      "id": 21
+    },
+    {
+      "userId": 1,
+      "name": "zxczxcz",
+      "completed": false,
+      "skills": [
+        {
+          "id": 3
+        }
+      ],
+      "id": 22
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "name": "guitar",
+      "level": 6,
+      "exp": 1400,
+      "maxExp": 6000,
+      "userId": 1,
+      "tasksCompleted": 4
+    },
+    {
+      "id": 2,
+      "name": "react",
+      "level": 3,
+      "exp": 1800,
+      "maxExp": 3000,
+      "userId": 1,
+      "tasksCompleted": 2
+    },
+    {
+      "userId": 1,
+      "name": "CSS",
+      "level": 1,
+      "exp": 800,
+      "maxExp": 1000,
+      "id": 3,
+      "tasksCompleted": 0
+    },
+    {
+      "userId": 1,
+      "name": "test",
+      "level": 1,
+      "exp": 0,
+      "maxExp": 1000,
+      "id": 4,
+      "tasksCompleted": 0
+    }
+  ],
+  "habits": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "test",
+      "type": 0
+    }
+  ],
+  "addresses": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "home",
+      "street": "Jakuba Jasińskiego 21",
+      "zipcode": "43-344",
+      "city": "Bielsko-Biała"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "name": "work",
+      "street": "Katowicka 26",
+      "zipcode": "42-300",
+      "city": "Katowice"
+    }
+  ]
+}
