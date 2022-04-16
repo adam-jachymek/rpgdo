@@ -1,5 +1,6 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { TasksService } from './tasks.service';
+import { Public } from 'src/publicDecorator';
 
 @Controller('tasks')
 export class TasksController {
@@ -19,6 +20,7 @@ export class TasksController {
     return { id: generatedId }
   }
 
+  @Public()
   @Get()
   async getAllTasks() {
     const products = await this.tasksService.getTasks();
