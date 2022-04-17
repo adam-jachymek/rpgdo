@@ -18,8 +18,6 @@ const Tasks = ({ refetchUser }) => {
 
   const { darkMode } = useContext(ThemeContext);
 
-  console.log(darkMode)
-
   const { mutate: addTask } = useMutation(postTask, {
     onSuccess: (response) => {
       refetchTasks()
@@ -27,8 +25,8 @@ const Tasks = ({ refetchUser }) => {
   });
 
   const skillsMap = skillsData?.map((skill) => (
-    <li onClick={() => { !addSkill ? setAddSkill(skill.id) : setAddSkill("") }}
-      className={classNames("tasks__add__skills__skill", { "checked": skill.id === addSkill })}>
+    <li onClick={() => { !addSkill ? setAddSkill(skill._id) : setAddSkill("") }}
+      className={classNames("tasks__add__skills__skill", { "checked": skill._id === addSkill })}>
       {skill.name}
     </li>
   ))

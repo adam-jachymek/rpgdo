@@ -34,7 +34,7 @@ const Task = ({ task, refetchTasks, refetchUser, skillsLoading, skillsData }) =>
 
     const matchSkills = (id) => {
         if (!skillsLoading) {
-            return skillsData?.find((skill) => skill.id == id).name
+            return skillsData?.find((skill) => skill._id == id).name
         }
     }
 

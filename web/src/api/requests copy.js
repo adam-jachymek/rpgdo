@@ -1,6 +1,14 @@
-import { api, mongoDB } from "./api";
+import { api, trivia } from "./api";
 
 const userId = Number(localStorage.getItem('userId'))
+
+export const fetchTest = async () => {
+
+    const response = await api.get('/posts');
+
+    return response.data;
+
+};
 
 export const fetchProfile = async () => {
 
@@ -12,7 +20,7 @@ export const fetchProfile = async () => {
 
 export const fetchUser = async () => {
 
-    const response = await mongoDB.get('/profile');
+    const response = await api.get('/users');
 
     return response.data;
 
@@ -20,7 +28,7 @@ export const fetchUser = async () => {
 
 export const fetchTasks = async () => {
 
-    const response = await mongoDB.get('/tasks');
+    const response = await api.get('/tasks');
 
     return response.data;
 
@@ -28,7 +36,7 @@ export const fetchTasks = async () => {
 
 export const fetchAddresses = async () => {
 
-    const response = await mongoDB.get(`/userData/${userId}/addresses`);
+    const response = await api.get(`/userData/${userId}/addresses`);
 
     return response.data;
 
@@ -36,7 +44,7 @@ export const fetchAddresses = async () => {
 
 export const postAddresses = async (values) => {
 
-    const response = await mongoDB.post(`/userData/${userId}/addresses`, values);
+    const response = await api.post(`/userData/${userId}/addresses`, values);
     console.log("response", response)
 
     return response;
@@ -45,7 +53,7 @@ export const postAddresses = async (values) => {
 
 export const postTask = async (data) => {
 
-    const response = await mongoDB.post(`/tasks`, data);
+    const response = await api.post(`/tasks`, data);
 
     return response;
 
@@ -53,7 +61,7 @@ export const postTask = async (data) => {
 
 export const updatePostTask = async (id) => {
 
-    const response = await mongoDB.patch(`/tasks/${id}`, { userId: userId, completed: "true" });
+    const response = await api.patch(`/tasks/${id}`, { userId: userId, completed: "true" });
 
     return response;
 
@@ -61,7 +69,7 @@ export const updatePostTask = async (id) => {
 
 export const deletePostTask = async (id) => {
 
-    const response = await mongoDB.delete(`/tasks/${id}`);
+    const response = await api.delete(`/tasks/${id}`);
 
     return response;
 
@@ -69,7 +77,7 @@ export const deletePostTask = async (id) => {
 
 export const fetchSkills = async () => {
 
-    const response = await mongoDB.get('/skills');
+    const response = await api.get('/skills');
 
     return response.data;
 
@@ -77,7 +85,7 @@ export const fetchSkills = async () => {
 
 export const fetchSkill = async (id) => {
 
-    const response = await mongoDB.get(`/skills/${id}`);
+    const response = await api.get(`/skills/${id}`);
 
     return response.data;
 
@@ -85,7 +93,7 @@ export const fetchSkill = async (id) => {
 
 export const addSkillPost = async (name) => {
 
-    const response = await mongoDB.post(`/skills`, { userId: userId, name: name, level: 1, exp: 0, maxExp: 1000 });
+    const response = await api.post(`/skills`, { userId: userId, name: name, level: 1, exp: 0, maxExp: 1000 });
 
     return response;
 
@@ -113,7 +121,7 @@ export const updateSkillLevelPost = async (id) => {
 
 export const deletePostSkill = async (id) => {
 
-    const response = await mongoDB.delete(`/skills/${id}`);
+    const response = await api.delete(`/skills/${id}`);
 
     return response;
 
@@ -138,7 +146,7 @@ export const updateUserLevelPost = async (id) => {
 
 export const registerPost = async (values) => {
 
-    const response = await mongoDB.post('/register', values);
+    const response = await api.post('/register', values);
 
     localStorage.setItem("userToken", response.data.accessToken)
 
@@ -149,13 +157,27 @@ export const registerPost = async (values) => {
 
 export const loginPost = async (values) => {
 
-    const response = await mongoDB.post('/login', values);
+    const response = await api.post('/login', values);
 
-    console.log(response)
-
-    localStorage.setItem("userToken", response.data.access_token)
-    localStorage.setItem("userId", response.data.result.id)
+    localStorage.setItem("userToken", response.data.accessToken)
+    localStorage.setItem("userId", response.data.user.id)
 
     return response.data;
+
+};
+
+export const fetchQuestions = async (categoryId) => {
+
+    const response = await trivia.get(`/api.php?amount=10&category=${categoryId}`);
+
+    return response.data.results;
+
+};
+
+export const fetchCategories = async () => {
+
+    const response = await trivia.get('/api_category.php');
+
+    return response.data.trivia_categories;
 
 };

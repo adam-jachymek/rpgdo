@@ -12,7 +12,7 @@ export class AuthService {
 
     async validateUser(email: string, pass: string): Promise<any> {
         const user = await this.usersService.getSingleUser(email);
-        const payload = { email: user.email, sub: user.id };
+        const payload = { userId: user.id, email: user.email };
         const isMatch = await bcrypt.compare(pass, user.password);
         if (isMatch) {
             const { password, ...result } = user;
@@ -22,5 +22,12 @@ export class AuthService {
             };
         }
         return "wrong login";
+    }
+
+    async login(user: any) {
+        const payload = { email: user.email, sub: user.userId };
+        return {
+            access_token: this.jwtService.sign(payload),
+        };
     }
 }

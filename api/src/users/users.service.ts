@@ -14,7 +14,7 @@ export class UsersService {
         try {
             user = await this.userModule.findOne({ email: email }).exec()
         } catch (error) {
-            throw new NotFoundException('Could not find user')
+            throw new NotFoundException('Error')
         }
 
         if (!user) {
@@ -22,13 +22,38 @@ export class UsersService {
         }
 
         return { id: user.id, email: user.email, password: user.password }
-
     }
 
     async insertUser(email: string, password: string) {
         const newUser = new this.userModule({ email: email, password: password })
         const result = await newUser.save()
         return result.id as string;
+    }
+
+    async getUserById(id: string) {
+        let user;
+        try {
+            user = await this.userModule.findOne({ id: id }).exec()
+        } catch (error) {
+            throw new NotFoundException('Error')
+        }
+
+        if (!user) {
+            throw new NotFoundException('Could not find user')
+        }
+
+        return user.id
+    }
+
+    async addTask(userId: string, taskId: string) {
+        await this.userModule.findByIdAndUpdate(
+            userId,
+            { tasks: [taskId] }
+        )
+    }
+
+    async getUser(userId: string): Promise<User> {
+        return await this.userModule.findOne({ _id: userId });
     }
 
 }

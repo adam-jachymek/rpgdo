@@ -1,10 +1,12 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Public } from 'src/auth/guards/publicDecorator';
 import { SkillsService } from './skills.service';
 
 @Controller('skills')
 export class SkillsController {
   constructor(private readonly skillsService: SkillsService) { }
 
+  @Public()
   @Post()
   async addSkill(
     @Body('name') name: string,
@@ -23,18 +25,21 @@ export class SkillsController {
     return { id: generatedId }
   }
 
+  @Public()
   @Get()
   async getAllSkills() {
     const skills = await this.skillsService.getSkills();
     return skills
   }
 
+  @Public()
   @Get(':id')
   async getSkill(@Param('id') id: string) {
     const skill = await this.skillsService.getSingleSkill(id);
     return skill
   }
 
+  @Public()
   @Patch(':id')
   async updateSkill(
     @Param('id') id: string,
@@ -57,6 +62,7 @@ export class SkillsController {
     return id;
   }
 
+  @Public()
   @Patch('/name/:id')
   async updateSkillName(
     @Param('id') id: string,
@@ -66,7 +72,7 @@ export class SkillsController {
     return id;
   }
 
-
+  @Public()
   @Delete(':id')
   async remove(@Param('id') id: string) {
     await this.skillsService.deleteSkill(id);

@@ -36,11 +36,11 @@ export class SkillsService {
     try {
       skill = await this.skillModule.findById(id).exec()
     } catch (error) {
-      throw new NotFoundException('Could not find task')
+      throw new NotFoundException('Could not find skill')
     }
 
     if (!skill) {
-      throw new NotFoundException('Could not find task')
+      throw new NotFoundException('There is no skill')
     }
 
     return { id: skill.id, name: skill.name, level: skill.level, exp: skill.exp, maxExp: skill.maxExp, tasksCompleted: skill.tasksCompleted }

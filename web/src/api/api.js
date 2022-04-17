@@ -22,6 +22,15 @@ export const mongoDB = axios.create({
     },
 });
 
+mongoDB.interceptors.request.use(
+    function (config) {
+        if (getToken()) config.headers.Authorization = `Bearer ${getToken()}`;
+        return config;
+    },
+    function (error) {
+        return Promise.reject(error);
+    }
+);
 
 export const trivia = axios.create({
     baseURL: `https://opentdb.com/`,
